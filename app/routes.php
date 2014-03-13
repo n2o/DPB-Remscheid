@@ -18,3 +18,7 @@ Route::get('/', function() {
 Route::get('info', function() {
     return View::make('info');
 });
+
+Route::get('users', function() {
+		return View::make('users');
+});
