@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function() {
-	return View::make('hello');
+	return View::make('master');
 });
 
 Route::get('info', function() {
@@ -20,5 +20,7 @@ Route::get('info', function() {
 });
 
 Route::get('users', function() {
-		return View::make('users');
+	$users = User::all();
+
+	return View::make('master')->with('users', $users);
 });

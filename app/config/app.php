@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'de',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'SINqAfZTcmvfwdNhyt9zxvP37e4HG1Sx',
+	'key' => 'SJXzsLatbYjOqJGg9vT8Jqq8QroTUgdi',
 
 	/*
 	|--------------------------------------------------------------------------
