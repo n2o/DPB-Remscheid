@@ -3,7 +3,7 @@
     <head>
         <title>
             @section('title')
-            RoseHosting.com Testing
+            Wow
             @show
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
