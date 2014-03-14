@@ -1,9 +1,8 @@
-<?php namespace App\Controllers\Admin;
-
+<?php
+namespace Admin;
 use Auth, BaseController, Form, Input, Redirect, Sentry, View;
 
 class AuthController extends BaseController {
-
     /**
      * Display the login page
      * @return View
