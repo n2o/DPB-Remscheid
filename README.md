@@ -5,6 +5,12 @@
 Get into `app/config/` and create a copy of `database_default.php` and `mail_default.php`.
 Name the copies `database.php`, `mail.php` and configure them.
 
+### Seed Database
+
+To seed your database with sample input, type:
+
+    php artisan db:seed
+
 ## Make sure app/storage is writable by your web server.
 
 If permissions are set correctly:
