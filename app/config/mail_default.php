@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.postmarkapp.com',
+	'host' => 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'port' => 2525,
+	'port' => 587,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'foo@bar.de', 'name' => 'Doge'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'your-gmail-address',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,6 +93,11 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	// 'password' => 'your-gmail-password',
+	'password' => 'your-application-specific-password',
+
+	'sendmail' => '/usr/sbin/sendmail -bs',
+
+	'pretend' => false,
 
 );
