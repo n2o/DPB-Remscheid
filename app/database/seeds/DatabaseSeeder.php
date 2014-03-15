@@ -2,11 +2,16 @@
 
 class DatabaseSeeder extends Seeder {
 
-    public function run() {
-        $this->call('SentrySeeder');
-        $this->command->info('Sentry tables seeded!');
+    public function run()
+    {
+        Eloquent::unguard();
 
-        $this->call('ContentSeeder');
-        $this->command->info('Content tables seeded!');
+        // Add calls to Seeders here
+        $this->call('UsersTableSeeder');
+        $this->call('PostsTableSeeder');
+        $this->call('CommentsTableSeeder');
+        $this->call('RolesTableSeeder');
+        $this->call('PermissionsTableSeeder');
     }
+
 }

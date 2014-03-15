@@ -16,6 +16,7 @@ ClassLoader::addDirectories(array(
 	app_path().'/commands',
 	app_path().'/controllers',
 	app_path().'/models',
+	app_path().'/presenters',
 	app_path().'/database/seeds',
 
 ));
@@ -27,11 +28,13 @@ ClassLoader::addDirectories(array(
 |
 | Here we will configure the error logger setup for the application which
 | is built on top of the wonderful Monolog library. By default we will
-| build a basic log file setup which creates a single file for logs.
+| build a rotating log file setup which creates a new file each day.
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+$logFile = 'log-'.php_sapi_name().'.txt';
+
+Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +51,25 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+    $pathInfo = Request::getPathInfo();
+    $message = $exception->getMessage() ?: 'Exception';
+    Log::error("$code - $message @ $pathInfo\r\n$exception");
+    
+    if (Config::get('app.debug')) {
+    	return;
+    }
+
+    switch ($code)
+    {
+        case 403:
+            return Response::view('error/403', array(), 403);
+
+        case 500:
+            return Response::view('error/500', array(), 500);
+
+        default:
+            return Response::view('error/404', array(), $code);
+    }
 });
 
 /*
@@ -58,7 +79,7 @@ App::error(function(Exception $exception, $code)
 |
 | The "down" Artisan command gives you the ability to put an application
 | into maintenance mode. Here, you will define what is displayed back
-| to the user if maintenance mode is in effect for the application.
+| to the user if maintenace mode is in effect for this application.
 |
 */
 
@@ -78,4 +99,4 @@ App::down(function()
 |
 */
 
-require app_path().'/filters.php';
+require __DIR__.'/../filters.php';

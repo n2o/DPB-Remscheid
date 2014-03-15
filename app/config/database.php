@@ -55,11 +55,11 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'DPB-Remscheid',
+			'database'  => 'laravel',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
-			'collation' => 'utf8_general_ci',
+			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
 
@@ -92,7 +92,7 @@ return array(
 	|
 	| This table keeps track of all the migrations that have already run for
 	| your application. Using this information, we can determine which of
-	| the migrations on disk haven't actually been run in the database.
+	| the migrations on disk have not actually be run in the databases.
 	|
 	*/
 
